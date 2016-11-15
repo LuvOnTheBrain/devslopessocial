@@ -24,10 +24,9 @@ class ViewController: UIViewController {
     
     
     @IBAction func fbBtnTapped(_ sender: Any) {
-      let login = FBSDKLoginManager.init()
-        login.logIn(withReadPermissions: @[@"public_profile"], from: self, handler: result: FBSDKLoginManagerLoginResult, error: NSError {
-            
-        })
+   
+       
+    
     }
 
    
