@@ -102,7 +102,7 @@
                                     <constraint firstAttribute="height" constant="75" id="W2C-kl-OIN"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3e7-bj-1uI" customClass="FBSDKButton">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3e7-bj-1uI">
                                 <rect key="frame" x="122.5" y="179" width="130" height="130"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="130" id="EAN-OT-vdD"/>
@@ -130,9 +130,6 @@
                             <constraint firstItem="05o-JW-pBS" firstAttribute="top" secondItem="WOO-6Q-ytL" secondAttribute="bottom" constant="16" id="wKD-5d-YQY"/>
                         </constraints>
                     </view>
-                    <connections>
-                        <outlet property="loginButton" destination="3e7-bj-1uI" id="lbL-9Y-XnI"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
