@@ -78,6 +78,9 @@
                                             <constraint firstAttribute="height" constant="30" id="8UG-dW-rrd"/>
                                         </constraints>
                                         <state key="normal" title="Login in"/>
+                                        <connections>
+                                            <action selector="loginPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TaR-Cn-6Bp"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -110,7 +113,7 @@
                                 </constraints>
                                 <state key="normal" image="logo-facebook"/>
                                 <connections>
-                                    <action selector="fbBtnTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Yno-eA-YHP"/>
+                                    <action selector="fbBtnTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qxh-y4-lNq"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -130,10 +133,14 @@
                             <constraint firstItem="05o-JW-pBS" firstAttribute="top" secondItem="WOO-6Q-ytL" secondAttribute="bottom" constant="16" id="wKD-5d-YQY"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="emailfield" destination="l77-Bg-myA" id="JWD-cJ-2Z3"/>
+                        <outlet property="passwordfield" destination="TAl-HU-AD1" id="7JG-GE-6Ww"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="236" y="-120"/>
+            <point key="canvasLocation" x="529" y="-376"/>
         </scene>
     </scenes>
     <resources>
