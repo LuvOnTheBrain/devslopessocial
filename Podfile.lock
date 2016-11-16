@@ -46,12 +46,14 @@ PODS:
     - GoogleToolboxForMac/NSString+URLArguments (= 2.1.0)
   - GoogleToolboxForMac/NSString+URLArguments (2.1.0)
   - GTMSessionFetcher/Core (1.1.7)
+  - PopupDialog (0.5.0)
 
 DEPENDENCIES:
   - Firebase
   - Firebase/Auth
   - Firebase/Database
   - Firebase/Storage
+  - PopupDialog (~> 0.5)
 
 SPEC CHECKSUMS:
   Firebase: ff77ffb77b317c3720fef57a60e9335cebf962e6
@@ -65,7 +67,8 @@ SPEC CHECKSUMS:
   GoogleSymbolUtilities: 631ee17048aa5e9ab133470d768ea997a5ef9b96
   GoogleToolboxForMac: 2b2596cbb7186865e98cadf2b1e262d851c2b168
   GTMSessionFetcher: a1f8ed39e4fe21c68957daed472c7afbcdf29166
+  PopupDialog: 9890441b81105b9076757af2afe2b037be682f3e
 
-PODFILE CHECKSUM: 0d5bc50f4513c53272580953b396e1527c352bec
+PODFILE CHECKSUM: 2b7a034cc805ead8487180e49b453016f50eecec
 
 COCOAPODS: 1.1.1

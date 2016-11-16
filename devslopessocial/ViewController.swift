@@ -23,6 +23,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func fbBtnTapped(_ sender: Any) {
+        
         let facebookLogin = FBSDKLoginManager()
         facebookLogin.logIn(withReadPermissions: ["email"], from: self, handler: {(result, error) in
             if error != nil {
@@ -33,13 +34,14 @@ class ViewController: UIViewController {
                 print("JESS: Successfully authenticated with Facebook")
                 let credential = FIRFacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
                 self.firebaseAuth(credential)
+                
             }
         }
         )
-        
     }
-   
-    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+
+    }
     // Code Source: https://developers.facebook.com/docs/swift/login
     // first authenticated with provider(Facebook), then with Firebase
     // After a user successfully signs in, get an access token for the signed-in user and exchange it for a Firebase credential:
@@ -48,19 +50,26 @@ class ViewController: UIViewController {
     func firebaseAuth(_ credential: FIRAuthCredential) {
         FIRAuth.auth()?.signIn(with: credential, completion: { (user, error) in
             if error != nil {
+                if let errCode = FIRAuthErrorCode(rawValue: error!._code) {
+                    switch errCode {
+                    case .errorCodeInvalidEmail:
+                        let alert = UIAlertController(title: "Sorry", message: "The E-Mail is invalid", preferredStyle:UIAlertControllerStyle.alert )
+                        let action = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)
+                        alert.addAction(action)
+                        
+                    case .errorCodeEmailAlreadyInUse:
+                        print("in use")
+                    default:
+                        print("Create User Error: \(error)")
+                    }
+                }
                 print("JESS: Unable to authenticate with Firebase - \(error)")
             } else {
                 print("JESS: Successfully authenticated with Firebase")
             }
+           
         })
     }
-    
-    
-   
-    
-    
-    
-    
     
     @IBAction func loginPressed(_ sender: Any) {
         if let email = emailfield.text, let password = passwordfield.text{
@@ -70,9 +79,15 @@ class ViewController: UIViewController {
                 } else {
                     //user not existing
                     FIRAuth.auth()?.createUser(withEmail: email, password: password, completion: {(user, error) in
-                        if error != nil {
+                        if let errCode = FIRAuthErrorCode(rawValue: error!._code) {
+                            switch errCode {
+                            case .errorCodeInvalidEmail:
+                                print("Please type in a valid e-mail address")
+                            default:
+                                print("Error: \(error)")
+                            }
                             print("JESS: Unable to authenticate with Firebase using email")
-                        } else{
+                        } else {
                             print("JESS: Successfully authenticate with Firebase")
                         }
                     })

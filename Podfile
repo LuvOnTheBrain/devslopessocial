@@ -8,6 +8,7 @@ target 'devslopessocial' do
   pod 'Firebase/Storage'
   pod 'Firebase/Auth'
   pod 'Firebase/Database'
+  pod 'PopupDialog', '~> 0.5'
 
   # Pods for devslopessocial
 
