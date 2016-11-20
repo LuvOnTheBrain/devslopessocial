@@ -358,6 +358,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 000FB58D5D22B4864888A2B3 /* Pods-devslopessocial.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = FZ66NCN5LX;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -376,6 +377,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0BA49ED95775F534D4FA857C /* Pods-devslopessocial.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = FZ66NCN5LX;
 				FRAMEWORK_SEARCH_PATHS = (

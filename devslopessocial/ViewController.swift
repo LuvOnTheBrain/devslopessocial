@@ -53,9 +53,7 @@ class ViewController: UIViewController {
                 if let errCode = FIRAuthErrorCode(rawValue: error!._code) {
                     switch errCode {
                     case .errorCodeInvalidEmail:
-                        let alert = UIAlertController(title: "Sorry", message: "The E-Mail is invalid", preferredStyle:UIAlertControllerStyle.alert )
-                        let action = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)
-                        alert.addAction(action)
+                        print("nothing")
                         
                     case .errorCodeEmailAlreadyInUse:
                         print("in use")
@@ -71,6 +69,8 @@ class ViewController: UIViewController {
         })
     }
     
+    
+    
     @IBAction func loginPressed(_ sender: Any) {
         if let email = emailfield.text, let password = passwordfield.text{
             FIRAuth.auth()?.signIn(withEmail: email, password: password, completion: {(user, error) in
@@ -82,7 +82,53 @@ class ViewController: UIViewController {
                         if let errCode = FIRAuthErrorCode(rawValue: error!._code) {
                             switch errCode {
                             case .errorCodeInvalidEmail:
-                                print("Please type in a valid e-mail address")
+                                // 上拉菜单 Action Sheet Version
+//                                let  alertController = UIAlertController(title: "保存或删除数据", message: "删除数据将不可恢复", preferredStyle: UIAlertControllerStyle.actionSheet)
+//                                let cancelAction = UIAlertAction(title: "取消", style: UIAlertActionStyle.cancel, handler: nil)
+//                                let deleteAction = UIAlertAction(title: "删除", style: UIAlertActionStyle.destructive, handler: nil)
+//                                let archiveAction = UIAlertAction(title: "保存", style: UIAlertActionStyle.default, handler: nil)
+//                                alertController.addAction(cancelAction)
+//                                alertController.addAction(deleteAction)
+//                                alertController.addAction(archiveAction)
+//                                self.present(alertController, animated: true, completion: nil)
+//                                // Action Sheet for iPad
+//                                let popover = alertController.popoverPresentationController
+//                                if (popover != nil) {
+//                                    popover?.sourceView = sender as? UIView
+//                                    popover?.sourceRect = (sender as AnyObject).bounds
+//                                    popover?.permittedArrowDirections = UIPopoverArrowDirection.any
+//                                }
+//                                 tbd: release dialog controller programatically
+//                                 Action Sheet Version 
+//                                
+//                                 对话框 Alert Version
+                                let alertController = UIAlertController(title: "标题", message: "这个是Alert Controller的标准样式", preferredStyle: UIAlertControllerStyle.alert)
+                                let cancelAction = UIAlertAction(title: "取消", style: UIAlertActionStyle.cancel, handler: nil)
+                                
+                                let okAction = UIAlertAction(title: "好的", style: UIAlertActionStyle.default, handler: {
+                                    (action: UIAlertAction!) -> Void in
+                                    // we can use account and password here
+                                    NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UITextFieldTextDidChange, object: nil)
+                                })
+                                
+                                alertController.addAction(cancelAction)
+                             
+                                alertController.addAction(okAction)
+                                okAction.isEnabled = false
+                                alertController.addTextField(configurationHandler: {
+                                    (textField: UITextField!) -> Void in
+                                    textField.placeholder = "登陆"
+                                })
+                                alertController.addTextField(configurationHandler: {
+                                    (textField: UITextField!) -> Void in
+                                        textField.placeholder = "密码"
+                                        textField.isSecureTextEntry = true
+                                    NotificationCenter.default.addObserver(self, selector: #selector(ViewController.alertTextFieldDidChange(notification:)), name: NSNotification.Name.UITextFieldTextDidChange, object: textField)
+                                    
+                                    }
+                                
+                                )
+                                self.present(alertController, animated: true, completion: nil)
                             default:
                                 print("Error: \(error)")
                             }
@@ -96,11 +142,21 @@ class ViewController: UIViewController {
             // potential error: invalid email / email already in use / operation not allowed / weak password.
     }
     }
-        
     
-
-     override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
+    func alertTextFieldDidChange(notification: NSNotification) {
+    let alertController = self.presentedViewController as! UIAlertController?
+    if (alertController != nil) {
+        let login = (alertController!.textFields?.last)! as UITextField
+        let okAction = alertController!.actions.last! as UIAlertAction
+        if (login.text?.characters.count)! > 3 {
+            okAction.isEnabled = true
+        }
+        if (login.text?.characters.count)! < 3 {
+            okAction.isEnabled = false
+        }
+       
     }
+
+}
 }
 
