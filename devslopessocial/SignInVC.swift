@@ -12,7 +12,9 @@ import FBSDKCoreKit
 import Firebase
 
 
-class ViewController: UIViewController {
+
+
+class SignInVC: UIViewController {
     
     
     @IBOutlet weak var emailfield: UITextField!
@@ -34,7 +36,7 @@ class ViewController: UIViewController {
                 print("JESS: Successfully authenticated with Facebook")
                 let credential = FIRFacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
                 self.firebaseAuth(credential)
-                
+           
             }
         }
         )
@@ -118,12 +120,13 @@ class ViewController: UIViewController {
                                 alertController.addTextField(configurationHandler: {
                                     (textField: UITextField!) -> Void in
                                     textField.placeholder = "登陆"
+                                    
                                 })
                                 alertController.addTextField(configurationHandler: {
                                     (textField: UITextField!) -> Void in
                                         textField.placeholder = "密码"
                                         textField.isSecureTextEntry = true
-                                    NotificationCenter.default.addObserver(self, selector: #selector(ViewController.alertTextFieldDidChange(notification:)), name: NSNotification.Name.UITextFieldTextDidChange, object: textField)
+                                    NotificationCenter.default.addObserver(self, selector: #selector(SignInVC.alertTextFieldDidChange(notification:)), name: NSNotification.Name.UITextFieldTextDidChange, object: textField)
                                     
                                     }
                                 
