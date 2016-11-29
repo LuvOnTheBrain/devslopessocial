@@ -36,7 +36,7 @@ class SignInVC: UIViewController {
                 print("JESS: Successfully authenticated with Facebook")
                 let credential = FIRFacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
                 self.firebaseAuth(credential)
-           
+               
             }
         }
         )
@@ -66,6 +66,7 @@ class SignInVC: UIViewController {
                 print("JESS: Unable to authenticate with Firebase - \(error)")
             } else {
                 print("JESS: Successfully authenticated with Firebase")
+                self.performSegue(withIdentifier: "Logined", sender: nil)
             }
            
         })
@@ -78,6 +79,7 @@ class SignInVC: UIViewController {
             FIRAuth.auth()?.signIn(withEmail: email, password: password, completion: {(user, error) in
                 if error == nil {
                     print("JESS: Email user authenticated with Firebase")
+                    self.performSegue(withIdentifier: "Logined", sender: nil)
                 } else {
                     //user not existing
                     FIRAuth.auth()?.createUser(withEmail: email, password: password, completion: {(user, error) in
