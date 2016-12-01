@@ -22,6 +22,7 @@
 		8CCFC0C71DED03C400964114 /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCFC0C61DED03C400964114 /* PostCell.swift */; };
 		8CCFC0CA1DED219500964114 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCFC0C91DED219500964114 /* DataService.swift */; };
 		8CECEE481DE2FF6600CC2C2C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CECEE471DE2FF6600CC2C2C /* Constants.swift */; };
+		8CFC17761DEFE1BE009AE01C /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFC17751DEFE1BE009AE01C /* Post.swift */; };
 		BEB36D036DF8A3AE14CC8A09 /* Pods_devslopessocial.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 799278C3D4BED63D554A1E55 /* Pods_devslopessocial.framework */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +48,7 @@
 		8CCFC0C91DED219500964114 /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		8CECEE471DE2FF6600CC2C2C /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		8CF6D0D61DE184210022F219 /* devslopessocial.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = devslopessocial.entitlements; sourceTree = "<group>"; };
+		8CFC17751DEFE1BE009AE01C /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +136,7 @@
 		8C6709151DE17AA6004DB444 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				8CFC17751DEFE1BE009AE01C /* Post.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -297,6 +300,7 @@
 				8CECEE481DE2FF6600CC2C2C /* Constants.swift in Sources */,
 				8CCFC0CA1DED219500964114 /* DataService.swift in Sources */,
 				8C82B25A1DE2FD3D007FF27B /* CricleView.swift in Sources */,
+				8CFC17761DEFE1BE009AE01C /* Post.swift in Sources */,
 				8C0A6B541DE18F940051DDA0 /* FeedVC.swift in Sources */,
 				8CCFC0C71DED03C400964114 /* PostCell.swift in Sources */,
 				8C5D32E41DD86A2B00D7D61C /* SignInVC.swift in Sources */,
