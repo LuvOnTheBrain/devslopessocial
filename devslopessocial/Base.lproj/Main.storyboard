@@ -328,7 +328,6 @@
                         <color key="backgroundColor" red="0.81176470590000005" green="0.84705882349999995" blue="0.86274509799999999" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="E9B-ye-YJg" secondAttribute="trailing" id="4mp-kI-koI"/>
-                            <constraint firstItem="fjG-jJ-pCc" firstAttribute="top" secondItem="E9B-ye-YJg" secondAttribute="bottom" id="Bum-Wo-NcX"/>
                             <constraint firstItem="E9B-ye-YJg" firstAttribute="leading" secondItem="rFz-4d-mxk" secondAttribute="leading" id="MCZ-5A-XIU"/>
                             <constraint firstItem="Lxc-Da-DeU" firstAttribute="top" secondItem="rFz-4d-mxk" secondAttribute="top" id="XKf-01-key"/>
                             <constraint firstItem="fuM-eG-mYX" firstAttribute="top" secondItem="Lxc-Da-DeU" secondAttribute="bottom" constant="16" id="aNS-Zx-wxS"/>
@@ -336,6 +335,7 @@
                             <constraint firstItem="E9B-ye-YJg" firstAttribute="top" secondItem="fuM-eG-mYX" secondAttribute="bottom" constant="8" id="dyP-In-Gx0"/>
                             <constraint firstItem="Lxc-Da-DeU" firstAttribute="leading" secondItem="rFz-4d-mxk" secondAttribute="leading" id="ih5-7c-KEM"/>
                             <constraint firstItem="fuM-eG-mYX" firstAttribute="leading" secondItem="rFz-4d-mxk" secondAttribute="leading" constant="16" id="nwk-bT-SmC"/>
+                            <constraint firstItem="fjG-jJ-pCc" firstAttribute="top" secondItem="E9B-ye-YJg" secondAttribute="bottom" id="v9v-VP-oeK"/>
                             <constraint firstAttribute="trailing" secondItem="fuM-eG-mYX" secondAttribute="trailing" constant="16" id="xmV-cN-WVK"/>
                         </constraints>
                     </view>
