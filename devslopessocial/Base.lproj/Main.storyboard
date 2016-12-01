@@ -190,8 +190,12 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="UMd-M4-7eK">
                                         <rect key="frame" x="8" y="8" width="327" height="49"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="add-image" translatesAutoresizingMaskIntoConstraints="NO" id="BN7-Gr-W7p">
+                                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="add-image" translatesAutoresizingMaskIntoConstraints="NO" id="BN7-Gr-W7p">
                                                 <rect key="frame" x="0.0" y="0.0" width="88" height="49"/>
+                                                <gestureRecognizers/>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="6dm-e6-Czx" appends="YES" id="sZ7-sr-2i6"/>
+                                                </connections>
                                             </imageView>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Add A Capture" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SNr-1H-DJY">
                                                 <rect key="frame" x="98" y="9.5" width="170" height="30"/>
@@ -340,6 +344,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="imageAdd" destination="BN7-Gr-W7p" id="5pq-Ki-DLL"/>
                         <outlet property="tableView" destination="E9B-ye-YJg" id="c39-cR-mAI"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="goToSignIn" id="pZW-B1-eMe"/>
                     </connections>
@@ -350,8 +355,13 @@
                         <action selector="signOutTapped:" destination="zqq-vX-bch" id="wuk-QN-cXz"/>
                     </connections>
                 </tapGestureRecognizer>
+                <tapGestureRecognizer id="6dm-e6-Czx">
+                    <connections>
+                        <action selector="addImageTapped:" destination="zqq-vX-bch" id="iRm-ce-ZUn"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1204" y="-388"/>
+            <point key="canvasLocation" x="1284" y="-387"/>
         </scene>
     </scenes>
     <resources>
