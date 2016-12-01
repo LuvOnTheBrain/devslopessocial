@@ -141,7 +141,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="316" y="-376"/>
+            <point key="canvasLocation" x="439" y="-376"/>
         </scene>
         <!--FeedVC-->
         <scene sceneID="6JE-F8-b7J">
@@ -164,12 +164,16 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="sign-out" translatesAutoresizingMaskIntoConstraints="NO" id="WUY-5g-TBw">
+                                    <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="sign-out" translatesAutoresizingMaskIntoConstraints="NO" id="WUY-5g-TBw">
                                         <rect key="frame" x="8" y="24" width="46" height="37"/>
+                                        <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="38" id="436-Lk-oRo"/>
                                             <constraint firstAttribute="width" constant="45" id="Z0I-bS-IOf"/>
                                         </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="s6F-ID-hCF" appends="YES" id="o6H-xW-xoN"/>
+                                        </connections>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.73725490199999999" blue="0.83137254900000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -337,11 +341,17 @@
                     </view>
                     <connections>
                         <outlet property="tableView" destination="E9B-ye-YJg" id="c39-cR-mAI"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="goToSignIn" id="pZW-B1-eMe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nIl-wk-Pfb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="s6F-ID-hCF">
+                    <connections>
+                        <action selector="signOutTapped:" destination="zqq-vX-bch" id="wuk-QN-cXz"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1392.8" y="-358.4707646176912"/>
+            <point key="canvasLocation" x="1204" y="-388"/>
         </scene>
     </scenes>
     <resources>

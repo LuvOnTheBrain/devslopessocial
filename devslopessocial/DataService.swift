@@ -9,6 +9,7 @@
 import Foundation
 import Firebase
 
+
 let DB_BASE = FIRDatabase.database().reference()
 // contain the url of data base. this information is from googleplist.
 
@@ -33,7 +34,10 @@ class DataService {
     
     func createFirebaseDBUser(uid: String, userData: Dictionary<String, String>) {
         REF_USERS.child(uid).updateChildValues(userData)
-        //if it doesn't exist, it will be created.
-        //check out the documentation for update / set ChildValues, update: only add new data, set: wipe out the old, set to a whole new set.
+        //if uid doesn't exist, we will create a database for it.
+        //check out the documentation for update / set ChildValues, update: only add new data, not overwriting any existing data, set: wipe out the old data, put new data in.
     }
+
+    
+    
 }
