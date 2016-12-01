@@ -20,6 +20,7 @@
 		8CA8F6451DDA9F86008296D8 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CA8F6411DDA9F86008296D8 /* FBSDKLoginKit.framework */; };
 		8CA8F6461DDA9F86008296D8 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CA8F6421DDA9F86008296D8 /* FBSDKShareKit.framework */; };
 		8CCFC0C71DED03C400964114 /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCFC0C61DED03C400964114 /* PostCell.swift */; };
+		8CCFC0CA1DED219500964114 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCFC0C91DED219500964114 /* DataService.swift */; };
 		8CECEE481DE2FF6600CC2C2C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CECEE471DE2FF6600CC2C2C /* Constants.swift */; };
 		BEB36D036DF8A3AE14CC8A09 /* Pods_devslopessocial.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 799278C3D4BED63D554A1E55 /* Pods_devslopessocial.framework */; };
 /* End PBXBuildFile section */
@@ -43,6 +44,7 @@
 		8CA8F6411DDA9F86008296D8 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		8CA8F6421DDA9F86008296D8 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
 		8CCFC0C61DED03C400964114 /* PostCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
+		8CCFC0C91DED219500964114 /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		8CECEE471DE2FF6600CC2C2C /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		8CF6D0D61DE184210022F219 /* devslopessocial.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = devslopessocial.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -101,6 +103,7 @@
 		8C5D32E01DD86A2B00D7D61C /* devslopessocial */ = {
 			isa = PBXGroup;
 			children = (
+				8CCFC0C81DED217500964114 /* Services */,
 				8CF6D0D61DE184210022F219 /* devslopessocial.entitlements */,
 				8C6709151DE17AA6004DB444 /* Model */,
 				8C6709171DE17ABB004DB444 /* View */,
@@ -151,6 +154,14 @@
 				8CCFC0C61DED03C400964114 /* PostCell.swift */,
 			);
 			name = View;
+			sourceTree = "<group>";
+		};
+		8CCFC0C81DED217500964114 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				8CCFC0C91DED219500964114 /* DataService.swift */,
+			);
+			name = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -284,6 +295,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8CECEE481DE2FF6600CC2C2C /* Constants.swift in Sources */,
+				8CCFC0CA1DED219500964114 /* DataService.swift in Sources */,
 				8C82B25A1DE2FD3D007FF27B /* CricleView.swift in Sources */,
 				8C0A6B541DE18F940051DDA0 /* FeedVC.swift in Sources */,
 				8CCFC0C71DED03C400964114 /* PostCell.swift in Sources */,

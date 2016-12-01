@@ -10,7 +10,7 @@ import UIKit
 import FBSDKLoginKit
 import FBSDKCoreKit
 import Firebase
-
+import SwiftKeychainWrapper
 
 
 
@@ -22,6 +22,20 @@ class SignInVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if let _ = KeychainWrapper.standard.string(forKey: KEY_UID) {
+            print("JESS: ID found in keychain")
+            performSegue(withIdentifier: "Logined", sender: nil)
+        }
+    }
+    
+    func completeSignIn(id: String, userData: Dictionary<String, String>) {
+        DataService.ds.createFirebaseDBUser(uid: id, userData: userData)
+        let keychainResult = KeychainWrapper.standard.set(id, forKey: KEY_UID)
+        print("JESS: Data saved to keychain \(keychainResult)")
+        performSegue(withIdentifier: "Logined", sender: nil)
     }
     
     @IBAction func fbBtnTapped(_ sender: Any) {
@@ -66,7 +80,11 @@ class SignInVC: UIViewController {
                 print("JESS: Unable to authenticate with Firebase - \(error)")
             } else {
                 print("JESS: Successfully authenticated with Firebase")
-                self.performSegue(withIdentifier: "Logined", sender: nil)
+                if let user = user {
+                     let userData = ["provider": credential.provider]
+                     self.performSegue(withIdentifier: "Logined", sender: nil)
+                }
+               
             }
            
         })
@@ -79,8 +97,12 @@ class SignInVC: UIViewController {
             FIRAuth.auth()?.signIn(withEmail: email, password: password, completion: {(user, error) in
                 if error == nil {
                     print("JESS: Email user authenticated with Firebase")
-                    self.performSegue(withIdentifier: "Logined", sender: nil)
-                } else {
+                    if let user = user {
+                        let userData = ["provider": user.providerID]
+                        self.completeSignIn(id: user.uid, userData: userData)
+                    }
+                }
+                 else {
                     //user not existing
                     FIRAuth.auth()?.createUser(withEmail: email, password: password, completion: {(user, error) in
                         if let errCode = FIRAuthErrorCode(rawValue: error!._code) {
@@ -140,6 +162,10 @@ class SignInVC: UIViewController {
                             print("JESS: Unable to authenticate with Firebase using email")
                         } else {
                             print("JESS: Successfully authenticate with Firebase")
+                            if let user = user {
+                                let userData = ["provider": user.providerID]
+                                self.completeSignIn(id: user.uid, userData: userData)
+                            }
                         }
                     })
                 }
